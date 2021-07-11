@@ -56,6 +56,13 @@
   );
 }
 
+.searchbar_container{
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+
 .searchbar {
   width: 96%;
   display: flex;
@@ -65,14 +72,13 @@
   margin-left: 10px;
   margin-right: 10px;
   border-radius: 15px;
-  
+  max-width: 500px;
   padding: 5px;
 }
 .searchbar > input {
   outline: none;
   border: none;
   flex: 1;
-
   font-size: 18px;
 }
 

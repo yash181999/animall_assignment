@@ -10,7 +10,6 @@ function Banner() {
   const [searchInputValue, setSearchInputValue] = useState("");
   const [{ searchQuery }, dispatch] = useStateValue();
   const history = useHistory();
-  
 
   useEffect(() => {
     async function fetchData() {
@@ -26,12 +25,12 @@ function Banner() {
   }, []);
 
   const searchMovie = () => {
-    if (searchInputValue ) {
+    if (searchInputValue) {
       dispatch({
         type: "SET_SEARCH_QUERY",
         searchQuery: searchInputValue,
       });
-      history.push("/search", searchInputValue)
+      history.push("/search", searchInputValue);
     }
   };
 
@@ -46,15 +45,18 @@ function Banner() {
       }}
     >
       <div className="banner_contents">
-        <div className="searchbar">
-          <input
-            onKeyPress={(e) => e.key ==='Enter' && searchMovie()}
-            value={searchInputValue}
-            onChange={(e) => setSearchInputValue(e.target.value)}
-            placeholder="search"
-          ></input>
-          <button onClick={searchMovie}>Search</button>
+        <div className = 'searchbar_container'>
+          <div className="searchbar">
+            <input
+              onKeyPress={(e) => e.key === "Enter" && searchMovie()}
+              value={searchInputValue}
+              onChange={(e) => setSearchInputValue(e.target.value)}
+              placeholder="search"
+            ></input>
+            <button onClick={searchMovie}>Search</button>
+          </div>
         </div>
+
         <h1 className="banner_title">
           {movie?.title || movie?.name || movie?.original_name}
         </h1>
